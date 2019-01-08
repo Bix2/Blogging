@@ -1,0 +1,20 @@
+2019-01-08 20:19:35.1999 Info Message Template Auto Format enabled
+2019-01-08 20:19:35.2190 Info Loading assembly: NLog.Web.AspNetCore
+2019-01-08 20:19:35.2845 Info Adding target File Target[allfile]
+2019-01-08 20:19:35.2869 Info Adding target File Target[ownFile-web]
+2019-01-08 20:19:35.2954 Info Configured from an XML element in /Users/Bibi/Sites/Blogging/bin/Debug/netcoreapp2.1/NLog.config...
+2019-01-08 20:19:35.3187 Info Found 45 configuration items
+2019-01-08 20:19:35.5138 Info Configuration initialized.
+2019-01-08 20:19:35.5313 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.5.11.8645. Product version: 4.5.11.
+2019-01-08 20:19:37.0283 Info Shutting down logging...
+2019-01-08 20:19:37.0434 Info Logger has been shut down.
+2019-01-08 20:20:47.8581 Info Message Template Auto Format enabled
+2019-01-08 20:20:47.8729 Info Loading assembly: NLog.Web.AspNetCore
+2019-01-08 20:20:47.9304 Info Adding target File Target[allfile]
+2019-01-08 20:20:47.9323 Info Adding target File Target[ownFile-web]
+2019-01-08 20:20:47.9397 Info Configured from an XML element in /Users/Bibi/Sites/Blogging/bin/Debug/netcoreapp2.1/NLog.config...
+2019-01-08 20:20:47.9557 Info Found 45 configuration items
+2019-01-08 20:20:48.1121 Info Configuration initialized.
+2019-01-08 20:20:48.1287 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.5.11.8645. Product version: 4.5.11.
+2019-01-08 20:20:49.4385 Info Shutting down logging...
+2019-01-08 20:20:49.4542 Info Logger has been shut down.

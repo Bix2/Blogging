@@ -1,0 +1,65 @@
+2019-01-08 20:19:36.6177|10403|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.4-rtm-31024 initialized 'BlogContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None 
+2019-01-08 20:20:49.0140|10403|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.4-rtm-31024 initialized 'BlogContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None 
+2019-01-08 20:20:49.1891|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+PRAGMA foreign_keys=ON; 
+2019-01-08 20:20:49.3207|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+PRAGMA foreign_keys=ON; 
+2019-01-08 20:20:49.3272|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+); 
+2019-01-08 20:20:49.3286|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+PRAGMA foreign_keys=ON; 
+2019-01-08 20:20:49.3301|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+PRAGMA foreign_keys=ON; 
+2019-01-08 20:20:49.3334|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table'; 
+2019-01-08 20:20:49.3358|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+PRAGMA foreign_keys=ON; 
+2019-01-08 20:20:49.3368|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId"; 
+2019-01-08 20:20:49.3547|20402|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20190108191936_InitialCreate'. 
+2019-01-08 20:20:49.4095|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+PRAGMA foreign_keys=ON; 
+2019-01-08 20:20:49.4151|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "authors" (
+    "AuthorId" INTEGER NOT NULL CONSTRAINT "PK_authors" PRIMARY KEY AUTOINCREMENT,
+    "LastName" TEXT NULL,
+    "FirstName" TEXT NULL
+); 
+2019-01-08 20:20:49.4159|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "posts" (
+    "PostId" INTEGER NOT NULL CONSTRAINT "PK_posts" PRIMARY KEY AUTOINCREMENT,
+    "Title" TEXT NOT NULL,
+    "Date" TEXT NOT NULL,
+    "Content" TEXT NOT NULL,
+    "AuthorId" INTEGER NOT NULL,
+    CONSTRAINT "FK_posts_authors_AuthorId" FOREIGN KEY ("AuthorId") REFERENCES "authors" ("AuthorId") ON DELETE CASCADE
+); 
+2019-01-08 20:20:49.4159|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "comments" (
+    "CommentId" INTEGER NOT NULL CONSTRAINT "PK_comments" PRIMARY KEY AUTOINCREMENT,
+    "Content" TEXT NOT NULL,
+    "PostId" INTEGER NOT NULL,
+    "AuthorId" INTEGER NOT NULL,
+    CONSTRAINT "FK_comments_authors_AuthorId" FOREIGN KEY ("AuthorId") REFERENCES "authors" ("AuthorId") ON DELETE CASCADE,
+    CONSTRAINT "FK_comments_posts_PostId" FOREIGN KEY ("PostId") REFERENCES "posts" ("PostId") ON DELETE CASCADE
+); 
+2019-01-08 20:20:49.4159|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO "authors" ("AuthorId", "FirstName", "LastName")
+VALUES (1, 'William', 'Shakespeare'); 
+2019-01-08 20:20:49.4159|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO "authors" ("AuthorId", "FirstName", "LastName")
+VALUES (2, 'Bibi', 'Treffers'); 
+2019-01-08 20:20:49.4169|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_comments_AuthorId" ON "comments" ("AuthorId"); 
+2019-01-08 20:20:49.4169|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_comments_PostId" ON "comments" ("PostId"); 
+2019-01-08 20:20:49.4169|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX "IX_posts_AuthorId" ON "posts" ("AuthorId"); 
+2019-01-08 20:20:49.4169|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20190108191936_InitialCreate', '2.1.4-rtm-31024'); 
