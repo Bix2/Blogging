@@ -1,0 +1,26 @@
+@model IEnumerable<Blogging.Models.Post>
+
+@{  
+    ViewBag.Title = "Index";  
+}  
+   
+<h2>Index</h2> 
+<a style="width: 100%" class="btn btn-primary" asp-controller="blog" asp-action="create">Create New Post</a>
+
+@foreach(var item in Model) {
+    <div class="blogPost">
+        <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
+        @{
+            string contentTrimmed = @item.Content;
+            if(contentTrimmed != null && contentTrimmed.Length > 600) {
+                contentTrimmed = contentTrimmed.Substring(0,600);
+            }
+        }
+        <p>@Html.Raw(contentTrimmed)</p>
+        <a class="btn btn-success" asp-controller="blog" asp-route-id="@item.PostId" asp-action="details">show</a>
+        <a style="color: #fff" class="btn btn-warning" asp-controller="blog" asp-route-id="@item.PostId" asp-action="edit">edit</a>
+        @using (Html.BeginForm(FormMethod.Post)) {
+            <button asp-controller="blog" asp-route-id="@item.PostId" asp-action="delete" type="submit" class="btn btn-danger" value="Delete">Delete</button>
+        }
+    </div>
+}
