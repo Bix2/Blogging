@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -54,13 +55,6 @@ namespace Blogging.Controllers
                 post.AuthorName = author;
                 post.Content = vm.Post.Content;
                 post.Title = vm.Post.Title;
-                //var post = new Blogging.Models.Post() {
-                  //  Title = item.Title,
-                  //  Content = item.Content,
-                 //   AuthorId = item.AuthorId,
-                   // Date = DateTime.Now,
-               // };  
-                // Add blog post to database
                 _blogContext.Posts.Add(post);
                 _blogContext.SaveChanges();
                 return RedirectToAction("Index");
@@ -99,14 +93,19 @@ namespace Blogging.Controllers
         public IActionResult Details([FromRoute]int id)
         {
             var post = _blogContext.Posts.Find(id);
-            var author = _blogContext.Authors.Find(post.AuthorId);
-            var comments = _blogContext.Comments.Where(x => x.PostId == post.PostId).ToList();
-            var vm = new PostCreateVM(){
-                Post = post, 
-                Comments = comments,
-            };
-            GetAuthorNames(vm);
-            return View(vm);
+            if (post != null) {
+                var author = _blogContext.Authors.Find(post.AuthorId);
+                var comments = _blogContext.Comments.Where(x => x.PostId == post.PostId).ToList();
+                var vm = new PostCreateVM(){
+                    Post = post, 
+                    Comments = comments,
+                };
+                GetAuthorNames(vm);
+                return View(vm);
+            } 
+             return RedirectToAction("Index");  // this could be an error page
+            
+
         }
 
         [Route("/show/{id}/comment")]

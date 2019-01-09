@@ -45,7 +45,7 @@ namespace Blog
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Blog/Error");
                 app.UseHsts();
             }
 
