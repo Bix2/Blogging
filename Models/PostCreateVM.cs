@@ -9,11 +9,10 @@ namespace Blogging.Models
   {
     public string SelectedAuthorId { get; set; }
     public List<SelectListItem> AuthorList { get; set; }
-    public Author Author { get; set; }
- 
+  
     public Post Post { get; set; }
     public Comment Comment { get; set; }
-    public IEnumerable<Comment> Comments { get; set; }
+    public List<Comment> Comments { get; set; }
 
   }
 }

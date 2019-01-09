@@ -1,4 +1,4 @@
-@model IEnumerable<Blogging.Models.Post>
+@model Blogging.Models.PostListVM
 
 @{  
     ViewBag.Title = "Index";  
@@ -7,7 +7,7 @@
 <h2>Index</h2> 
 <a style="width: 100%" class="btn btn-primary" asp-controller="blog" asp-action="create">Create New Post</a>
 
-@foreach(var item in Model) {
+@foreach(var item in Model.Posts) {
     <div class="blogPost">
         <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
         @{
