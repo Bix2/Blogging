@@ -31,3 +31,7 @@
 /Users/Bibi/Sites/Blogging/obj/Debug/netcoreapp2.1/Blogging.pdb
 /Users/Bibi/Sites/Blogging/obj/Debug/netcoreapp2.1/Blogging.csproj.CopyComplete
 /Users/Bibi/Sites/Blogging/bin/Debug/netcoreapp2.1/nlog.config
+/Users/Bibi/Sites/Blogging/obj/Debug/netcoreapp2.1/Razor/Views/Blog/index.g.cshtml.cs
+/Users/Bibi/Sites/Blogging/obj/Debug/netcoreapp2.1/Razor/Views/Blog/create.g.cshtml.cs
+/Users/Bibi/Sites/Blogging/obj/Debug/netcoreapp2.1/Razor/Views/Blog/edit.g.cshtml.cs
+/Users/Bibi/Sites/Blogging/obj/Debug/netcoreapp2.1/Razor/Views/Blog/details.g.cshtml.cs
