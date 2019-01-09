@@ -26,6 +26,7 @@ namespace Blogging.Models
         public Author AuthorName { get; set; }
     
         public List<Comment> Comments { get; set; }
+        //public Comment Comment { get; set; }
 
     }
 

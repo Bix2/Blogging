@@ -32,16 +32,7 @@ namespace Blogging.Data
             }
         );
 
-        modelBuilder.Entity<Post>().HasData(
-            new Post
-            {
-                PostId = 1,
-                Title = "William",
-                Content = "Shakespeare",
-                Date = DateTime.Now,
-                AuthorId = 2
-            }
-        );
+       
 
     }
 

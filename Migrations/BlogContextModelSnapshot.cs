@@ -82,10 +82,6 @@ namespace Blogging.Migrations
                     b.HasIndex("AuthorId");
 
                     b.ToTable("posts");
-
-                    b.HasData(
-                        new { PostId = 1, AuthorId = 2, Content = "Shakespeare", Date = new DateTime(2019, 1, 9, 0, 18, 23, 419, DateTimeKind.Local), Title = "William" }
-                    );
                 });
 
             modelBuilder.Entity("Blogging.Models.Comment", b =>

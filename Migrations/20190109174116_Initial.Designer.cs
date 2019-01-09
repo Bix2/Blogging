@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Blogging.Migrations
 {
     [DbContext(typeof(BlogContext))]
-    [Migration("20190108231824_Post")]
-    partial class Post
+    [Migration("20190109174116_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -84,10 +84,6 @@ namespace Blogging.Migrations
                     b.HasIndex("AuthorId");
 
                     b.ToTable("posts");
-
-                    b.HasData(
-                        new { PostId = 1, AuthorId = 2, Content = "Shakespeare", Date = new DateTime(2019, 1, 9, 0, 18, 23, 419, DateTimeKind.Local), Title = "William" }
-                    );
                 });
 
             modelBuilder.Entity("Blogging.Models.Comment", b =>

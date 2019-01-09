@@ -8,12 +8,14 @@ namespace Blogging.Models
     [Table("comments")]
     public class Comment
     {
+        [Key]
         public int CommentId { get; set; }
         
         [Required(ErrorMessage = "Body can not be empty")]
         [StringLength(1000)]
         public string Content { get; set; }
 
+        [ForeignKey("Post")]
         public int PostId { get; set; }
         public Post Post { get; set; }
 
