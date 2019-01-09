@@ -17,13 +17,13 @@ namespace Blogging.Models
 
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
-
+     
         [Required(ErrorMessage = "Body can not be empty")]
         [StringLength(1000)]
         public string Content { get; set; }
 
         public int AuthorId { get; set; }
-        public Author Author { get; set; }
+        public Author AuthorName { get; set; }
     
         public List<Comment> Comments { get; set; }
 

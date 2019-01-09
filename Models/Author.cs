@@ -20,9 +20,7 @@ namespace Blogging.Models
         [Display(Name = "First Name")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "First name must be between 2 and 50 characters.")]
         public string FirstName { get; set; }
-
-        public string FullName { get { return FirstName + " " + LastName; } }
-
+        
 
     }
 }
