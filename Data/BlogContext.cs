@@ -32,11 +32,22 @@ namespace Blogging.Data
             }
         );
 
+        modelBuilder.Entity<Post>().HasData(
+            new Post
+            {
+                PostId = 1,
+                Title = "William",
+                Content = "Shakespeare",
+                Date = DateTime.Now,
+                AuthorId = 2
+            }
+        );
+
     }
 
-    public DbSet<Post> Posts { get; set; }
-    public DbSet<Comment> Comments { get; set; }
-    public DbSet<Author> Authors { get; set; }
+    public DbSet<Post> Posts { get; internal set; }
+    public DbSet<Comment> Comments { get; internal set; }
+    public DbSet<Author> Authors { get; internal set; }
   }
 
 }
